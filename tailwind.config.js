@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        robotoBlack:["Roboto-Black"],
+        robotoBold:["Roboto-Bold"],
+        robotoMedium:["Roboto-Medium"],
+        robotoRegular:["Roboto-Regular"],
+      }
+    },
   },
   plugins: [],
 }

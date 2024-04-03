@@ -5,9 +5,9 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="bg-black text-white w-screen min-h-screen flex flex-col">
         <Header/>
-        <main>
+        <main className="w-full p-5">
           <Outlet/>
         </main>
       </div>

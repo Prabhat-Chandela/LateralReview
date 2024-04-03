@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import{Home, Magazines, Magazine, Articles, Article, Contact} from "./pages/index.js";
+import{Home, Magazines, Magazine, Blogs, Blogpost, Contact, Services} from "./pages/index.js";
 
 const router = createBrowserRouter([
   {
@@ -23,17 +23,22 @@ const router = createBrowserRouter([
         element: <Magazine />
       },
       {
-        path: "/articles",
-        element: <Articles />
+        path: "/blogs",
+        element: <Blogs />
       },
       {
-        path: "/article/:slug",
-        element: <Article />
+        path: "/blog-post/:slug",
+        element: <Blogpost />
       },
       {
         path: "/contact",
         element: <Contact />
-      }
+      },
+      {
+        path:"/services",
+        element:<Services/>
+      },
+      
     ]
   }
 ])

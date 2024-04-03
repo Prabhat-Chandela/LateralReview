@@ -1,15 +1,17 @@
 import Home from "./Home";
 import Magazines from "./Magazines";
 import Magazine from "./Magazine";
-import Articles from "./Articles";
-import Article from "./Article";
+import Blogs from "./Blogs";
+import Blogpost from "./Blogpost";
 import Contact from "./Contact"
+import Services from "./Services";
 
 export {
     Home,
     Magazines,
     Magazine,
-    Articles,
-    Article,
+    Blogs,
+    Blogpost,
     Contact,
+    Services,
 }

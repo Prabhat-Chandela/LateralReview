@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Roboto-Black";
+    src: local("Roboto-Black"),url("./fonts/Roboto-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: local("Roboto-Bold"),url("./fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-Medium";
+    src: local("Roboto-Medium"),url("./fonts/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: local("Roboto-Regular"),url("./fonts/Roboto-Regular.ttf") format("truetype");
+}
