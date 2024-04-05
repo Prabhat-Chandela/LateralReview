@@ -4,6 +4,7 @@ import QueryForm from "./QueryForm/QueryForm";
 import Input from "./Input/Input";
 import MagazineCard from "./MagazineCard/MagazineCard";
 import ArticleCard from "./ArticleCard/ArticleCard";
+import Button from "./Button/Button";
 
 export {
     Header,
@@ -12,4 +13,5 @@ export {
     Input,
     MagazineCard,
     ArticleCard,
+    Button
 }

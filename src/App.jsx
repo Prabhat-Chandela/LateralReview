@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-black text-white w-screen min-h-screen flex flex-col">
+      <div className="bg-black text-white max-w-screen min-h-screen flex flex-col">
         <Header/>
         <main className="w-full p-5">
           <Outlet/>
