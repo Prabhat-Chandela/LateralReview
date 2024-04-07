@@ -34,7 +34,7 @@ function Header() {
 
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-black">
       <nav className="flex items-center justify-between p-3 sm:p-7 ">
         <section>
           <div><Logo /></div>
@@ -45,7 +45,7 @@ function Header() {
             <ul className="flex items-center justify-end gap-4 sm:gap-7 ">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <NavLink className={({ isActive }) => `flex font-robotoMedium items-center justify-center gap-2 text-sm  ${isActive ? "text-red-600" : "text-white"}`} to={item.path}><span>{item.icon}</span>
+                  <NavLink className={({ isActive }) => `flex font-robotoMedium items-center justify-center gap-2 text-xs   ${isActive ? "text-red-600 bg-white p-1 sm:px-3 sm:py-2 rounded-md sm:rounded-lg" : "text-white"}`} to={item.path}><span>{item.icon}</span>
                     <span className="hidden lg:block">{item.name}</span></NavLink>
                 </li>
               ))}
