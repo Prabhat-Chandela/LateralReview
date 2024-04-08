@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowBigRightDash, ArrowBigLeftDash } from "lucide-react";
 import HTMLFlipBook from 'react-pageflip';
 import { Document, Page } from 'react-pdf';
@@ -19,6 +20,7 @@ function Magazine() {
 
   const [numPages, setNumPages] = useState(null);
   const book = useRef();
+  const { id } = useParams();
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);

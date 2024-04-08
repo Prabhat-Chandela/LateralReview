@@ -7,7 +7,7 @@ function App() {
     <>
       <div className="bg-black text-white max-w-screen min-h-screen flex flex-col">
         <Header/>
-        <main className="w-full p-5">
+        <main className="w-full p-5 mt-24">
           <Outlet/>
         </main>
       </div>
