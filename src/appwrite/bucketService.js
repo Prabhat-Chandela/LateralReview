@@ -15,7 +15,7 @@ export class BucketService {
 
     async getMagazineFile(magazineFile){
         try {
-            return await this.bucket.getFile(config.appwriteMagazineBucketId, magazineFile);
+            return await this.bucket.getFileView(config.appwriteMagazineBucketId, magazineFile);
         } catch (error) {
             console.log("Appwrite::getMagazineFile::error::", error)
         }

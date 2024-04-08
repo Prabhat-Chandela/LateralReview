@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
 import{Home, Magazines, Magazine, Blogs, Blogpost, Contact, Services} from "./pages/index.js";
 
 const router = createBrowserRouter([
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
         element: <Magazines />
       },
       {
-        path: "/magazine/:id",
+        path: "/magazine/:magazinefile",
         element: <Magazine />
       },
       {
@@ -45,6 +47,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )

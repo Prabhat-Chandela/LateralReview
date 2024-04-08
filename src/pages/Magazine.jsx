@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate, useParams } from "react-router-dom";
 import { ArrowBigRightDash, ArrowBigLeftDash } from "lucide-react";
+import bucketService from '../appwrite/bucketService';
 import HTMLFlipBook from 'react-pageflip';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
@@ -17,15 +18,29 @@ const Pages = React.forwardRef((props, ref) => {
 });
 
 function Magazine() {
-
+  const [pdf, setPdf] = useState(null);
   const [numPages, setNumPages] = useState(null);
   const book = useRef();
-  const { id } = useParams();
+  const {magazinefile} = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (magazinefile) {
+        bucketService.getMagazineFile(magazinefile).then((file) => {
+            if (file){
+              console.log(file);
+              setPdf(file.href);}
+            else navigate("/");
+        });
+    } else navigate("/");
+}, [magazinefile, navigate]);
+
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
   }
   const pagesArray = Array.from(Array(numPages).keys());
+  console.log(pdf)
 
   return (
        <>
@@ -35,7 +50,7 @@ function Magazine() {
           {pagesArray.map((n) => (
             <Pages key={n + 1}>
               <Document
-                file="/testPdf.pdf"
+                file={pdf && pdf}
                 onLoadSuccess={onDocumentLoadSuccess}
               >
                 <Page pageNumber={n + 1} renderAnnotationLayer={false} renderTextLayer={false} width={300} className='border-3 border-black' />
