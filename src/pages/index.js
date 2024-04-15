@@ -5,6 +5,8 @@ import Blogs from "./Blogs";
 import Blogpost from "./Blogpost";
 import Contact from "./Contact"
 import Services from "./Services";
+import PrivacyPolicy from "./PrivacyPolicy";
+import TermsCondition from "./TermsCondition";
 
 export {
     Home,
@@ -14,4 +16,6 @@ export {
     Blogpost,
     Contact,
     Services,
+    PrivacyPolicy,
+    TermsCondition,
 }

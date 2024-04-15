@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {getAllMagazines} from "../store/postSlice";
 import {MagazineCard} from "../Components/index";
+import {motion as m} from "framer-motion";
 
 function Magazines() {
   const dispatch = useDispatch();
@@ -17,7 +18,10 @@ function Magazines() {
   const allMagazines = useSelector((state)=>state.post.allMagazines)
 
   return (
-    <div>
+    <m.div 
+    initial={{opacity:0, x:"100%"}}
+    animate={{opacity:1,x:0}}
+    transition={{duration:0.7 , ease:"backInOut"}}>
       <section>
         <div>
           {allMagazines ? (
@@ -31,7 +35,7 @@ function Magazines() {
         )}
         </div>
       </section>
-    </div>
+    </m.div>
   );
 };
 

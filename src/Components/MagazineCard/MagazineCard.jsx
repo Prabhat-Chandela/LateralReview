@@ -1,28 +1,28 @@
 import bucketService from "../../appwrite/bucketService";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../index"
 
 function MagazineCard({ magazineTitle, magazineFile, magazineCover, magazineCategory }) {
+
+  const navigate = useNavigate();
+  const cover = bucketService.getMagazineCover(magazineCover);
+  
   return (
-    <div>
-      <div>
-        <img src={bucketService.getMagazineCover(magazineCover)} alt={magazineTitle} />
+    <div className="bg-gradient-to-r from-red-700 to-red-500 flex  flex-col w-3/4 sm:w-1/3 lg:w-1/4 xl:w-1/5 h-1/3 rounded-lg overflow-hidden p-1 relative ">
+
+      <div className=" w-full h-full overflow-hidden ">
+        <img className="rounded-md w-full h-full " src={cover.pathname} alt={magazineTitle} />
       </div>
-      <h3>{magazineTitle}</h3>
 
-      <div>
+      <div className="flex flex-col absolute -top-full">
 
-        <div>
-          <Link to={`/magazine/${magazineFile}`}>
-            <Button>
-              Digital Version
-            </Button>
-          </Link>
-        </div>
-
-        <h3>{magazineCategory}</h3>
+        <h3 className="font-robotoBlack p-2">{magazineTitle}</h3>
+        <Button onClick={() => navigate(`/magazine/${magazineFile}`)}>
+          Digital Version
+        </Button>
 
       </div>
+
     </div>
   )
 }
