@@ -5,7 +5,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
-import{Home, Magazines, Magazine, Blogs, Blogpost, Contact, Services} from "./pages/index.js";
+import{Home, Magazines, Magazine, Blogs, Blogpost, Contact, Services, PrivacyPolicy, TermsCondition} from "./pages/index.js";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +39,14 @@ const router = createBrowserRouter([
       {
         path:"/services",
         element:<Services/>
+      },
+      {
+        path:"/privacy-policy",
+        element:<PrivacyPolicy/>
+      },
+      {
+        path:"/terms-condition",
+        element:<TermsCondition/>
       },
       
     ]
