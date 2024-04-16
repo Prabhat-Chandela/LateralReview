@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, useLocation } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
-import{Home, Magazines, Magazine, Blogs, Blogpost, Contact, Services, PrivacyPolicy, TermsCondition} from "./pages/index.js";
+import { Home, Magazines, Magazine, Blogs, Blogpost, Contact, Services, PrivacyPolicy, TermsCondition } from "./pages/index.js";
+
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const router = createBrowserRouter([
   {
@@ -14,41 +25,68 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <>
+          <Home />
+          <ScrollToTop />
+        </>
       },
       {
         path: "/magazines",
-        element: <Magazines />
+        element: <>
+          <Magazines />
+          <ScrollToTop />
+        </>
       },
       {
         path: "/magazine/:magazinefile",
-        element: <Magazine />
+        element: <>
+          <Magazine />
+          <ScrollToTop />
+        </>
       },
       {
         path: "/blogs",
-        element: <Blogs />
+        element: <>
+          <Blogs />
+          <ScrollToTop />
+        </>
       },
       {
         path: "/blog-post/:slug",
-        element: <Blogpost />
+        element: <>
+          <Blogpost />
+          <ScrollToTop />
+        </>
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <>
+          <Contact />
+          <ScrollToTop />
+        </>
       },
       {
-        path:"/services",
-        element:<Services/>
+        path: "/services",
+        element: <>
+          <Services />
+          <ScrollToTop />
+        </>
       },
       {
-        path:"/privacy-policy",
-        element:<PrivacyPolicy/>
+        path: "/privacy-policy",
+        element: <>
+          <PrivacyPolicy />
+          <ScrollToTop />
+        </>
       },
       {
-        path:"/terms-condition",
-        element:<TermsCondition/>
+        path: "/terms-condition",
+        element: <>
+          <TermsCondition />
+          <ScrollToTop />
+        </>
       },
-      
+
     ]
   }
 ])
@@ -56,7 +94,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
 )
