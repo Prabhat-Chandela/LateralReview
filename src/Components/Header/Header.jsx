@@ -33,7 +33,7 @@ function Header() {
 
 
   return (
-    <div className="w-full bg-black fixed top-0 left-0 right-0 z-30 shadow-sm shadow-red-600">
+    <div className="w-full bg-black fixed top-0 left-0 right-0 z-30 shadow-[0px_-2px_15px_rgba(221,_221,_221,_1)]">
       <nav className="flex items-center justify-between p-3 sm:p-6 ">
         <section>
           <div>

@@ -53,8 +53,7 @@ function Services() {
   return (
 
     <>
-
-      <section className="mt-7">
+      <section className=" mt-9 sm:mt-7">
       <div className="w-full flex flex-col gap-5">
         <div className="overflow-hidden">
         <m.h2
