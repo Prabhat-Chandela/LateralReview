@@ -1,6 +1,6 @@
-import { Input , Button } from "../Components/index";
+import { Input , Button, Socials } from "../Components/index";
 import { motion as m } from "framer-motion";
-import { Linkedin, Facebook, Instagram, Twitter, Youtube, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 function Contact() {
 
@@ -27,14 +27,7 @@ function Contact() {
             className="w-full flex flex-col gap-5">
             <p className="text-white font-robotoRegular text-xs sm:text-sm sm:w-[60%] lg:w-[37%]">Feel free to reach us regarding any work related query and for achieving excellence in creating a brand of your own.</p>
 
-            <div className="flex gap-5 mt-2" >
-
-              <a href="https://www.linkedin.com/company/lateral-review/?viewAsMember=true" target="_blank" rel="noopner noreferrer" className="bg-black text-red-700 border border-red-700 rounded-full p-2 hover:text-white hover:border-white transition-all ease-out duration-100 "><Linkedin size={20} /></a>
-              <a href="https://www.facebook.com/profile.php?id=61557777824555" target="_blank" rel="noopner noreferrer" className="bg-black text-red-700 border border-red-700 rounded-full p-2 hover:text-white hover:border-white transition-all ease-out duration-100 "><Facebook size={20} /></a>
-              <a href="https://www.instagram.com/lateralreview/" target="_blank" rel="noopner noreferrer" className="bg-black text-red-700 border border-red-700 rounded-full p-2 hover:text-white hover:border-white transition-all ease-out duration-100 "><Instagram size={20} /></a>
-              <a href="https://twitter.com/LateralReviews" target="_blank" rel="noopner noreferrer" className="bg-black text-red-700 border border-red-700 rounded-full p-2 hover:text-white hover:border-white transition-all ease-out duration-100 "><Twitter size={20} /></a>
-              <a href="https://www.youtube.com/channel/UCPEXLEb0lX45U3mIzOTOr_g" target="_blank" rel="noopner noreferrer" className="bg-black text-red-700 border border-red-700 rounded-full p-2 hover:text-white hover:border-white transition-all ease-out duration-100 "><Youtube size={20} /></a>
-            </div>
+           <Socials/>
 
           </m.div>
 
@@ -79,7 +72,7 @@ function Contact() {
                placeholder="Enter query here"
               className="h-20" 
               />
-              <Button bgColor="bg-gradient-to-r from-red-700 to-red-500" textColor="text-black">Send Query</Button>
+              <Button>Send Query</Button>
             </div>
 
           </div>

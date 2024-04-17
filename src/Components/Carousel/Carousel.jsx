@@ -1,10 +1,10 @@
 
-function Carousel({children}) {
+function Carousel({ children }) {
   return (
-    <div>
-        <div className="flex">
-            {children}
-        </div>
+    <div className="overflow-hidden relative w-full h-full">
+      <div className="flex">
+        {children}
+      </div>
     </div>
   )
 }

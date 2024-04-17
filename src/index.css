@@ -41,3 +41,8 @@
     border-radius: 4px;
 }
 
+
+.parentCard:hover .childCard{
+    transform: translateY(0);
+    opacity:100%;
+}

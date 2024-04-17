@@ -72,7 +72,7 @@ function Services() {
         className="w-full flex flex-col gap-3">
         <p className="text-white font-robotoRegular text-xs sm:text-sm sm:w-[60%] lg:w-[35%]">Whatever you want to do, if you want to be great at it, you have to love it and be able to make sacrifices for it.</p>
        
-          <Button onClick={()=>navigate("/contact")} bgColor={"bg-gradient-to-r from-red-700 to-red-500"} textColor={"text-black"}>Ping Us</Button>
+          <Button onClick={()=>navigate("/contact")}>Ping Us</Button>
           </m.div>
 
       </div>

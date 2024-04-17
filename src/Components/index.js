@@ -5,6 +5,8 @@ import ArticleCard from "./ArticleCard/ArticleCard";
 import Button from "./Button/Button";
 import ServiceCard from "./ServiceCard/ServiceCard";
 import Footer from "./Footer/Footer";
+import Socials from "./Socials/Socials";
+import Carousel from "./Carousel/Carousel";
 
 export {
     Header,
@@ -14,4 +16,6 @@ export {
     Button,
     ServiceCard,
     Footer,
+    Socials,
+    Carousel,
 }
