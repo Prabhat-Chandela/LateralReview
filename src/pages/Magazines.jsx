@@ -1,26 +1,14 @@
-import databaseService from "../appwrite/databaseService"
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllMagazines } from "../store/postSlice";
+import { useSelector } from "react-redux";
 import { MagazineCard } from "../Components/index";
 import { motion as m } from "framer-motion";
 
 function Magazines() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    databaseService.getMagazines().then((magazines) => {
-      if (magazines) {
-        dispatch(getAllMagazines({ allMagazines: magazines.documents }))
-      }
-    })
-  }, [])
-
-  const allMagazines = useSelector((state) => state.post.allMagazines)
+  const allMagazines = useSelector((state) => state.post.allMagazines);
 
   return (
-    <div className="w-full mt-9 sm:mt-7 flex flex-col gap-7">
+    <div className="w-full mt-9 sm:mt-7 flex flex-col gap-14">
 
-      <section className="w-full">
+      <section className="w-full flex flex-col gap-5">
         <div className="overflow-hidden">
           <m.h2
             initial={{ opacity: 0, y: "100%" }}
@@ -30,6 +18,12 @@ function Magazines() {
             MAGAZINE GALORE
           </m.h2>
         </div>
+        <m.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}
+          className="text-white font-robotoRegular text-xs sm:text-sm sm:w-[60%] lg:w-[47%]">Embark on a journey into the minds of global leaders, gaining profound insights and inspiration from their experiences through our magazine. Delve deep and discover the perspectives shaping our world today.</m.p>
+
 
       </section>
 
@@ -38,18 +32,16 @@ function Magazines() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.7, ease: "easeInOut" }}>
-        <div>
-          <div>
-            {allMagazines ? (
-              allMagazines.map((magazine) => (
-                <div key={magazine.$id}>
-                  <MagazineCard {...magazine} />
-                </div>
-              ))
-            ) : (
-              <div>Loading...</div>
-            )}
-          </div>
+        <div className="w-full flex flex-col items-center justify-center sm:justify-normal sm:items-start sm:flex-row flex-wrap gap-9 sm:gap-7 ">
+          {allMagazines ? (
+            allMagazines.map((magazine) => (
+              <div className="w-3/4 sm:w-1/3 lg:w-1/4 xl:w-1/5 h-1/3" key={magazine.$id}>
+                <MagazineCard {...magazine} />
+              </div>
+            ))
+          ) : (
+            <div>Loading...</div>
+          )}
         </div>
       </m.section>
 

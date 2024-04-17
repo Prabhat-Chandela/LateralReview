@@ -1,13 +1,34 @@
-import { ArticleCard, Button } from "../Components";
+import { ArticleCard, Carousel } from "../Components/index";
 import { Newspaper } from "lucide-react";
 import { easeInOut, motion as m } from "framer-motion";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import databaseService from "../appwrite/databaseService";
+import bucketService from "../appwrite/bucketService";
+import {getAllMagazines} from "../store/postSlice"
+
 function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+
+    databaseService.getMagazines().then((magazines) => {
+      if (magazines) {
+        dispatch(getAllMagazines({ allMagazines: magazines.documents }))
+      }
+    })
+
+  },[])
+
+  const allMagazines = useSelector((state) => state.post.allMagazines)
+
+
   return (
     <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7, ease: easeInOut }}
-      className="font-robotoBlack flex flex-col sm:p-5 w-full gap-20 lg:gap-32 mt-5">
+      className="font-robotoBlack flex flex-col sm:p-5 w-full gap-20 lg:gap-32 mt-12 sm:mt-5">
 
       <section className="w-full flex flex-col gap-7 items-center justify-center mt-5 sm:mt-10">
 
@@ -26,8 +47,19 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7, duration: 0.5 }}
-        className="w-full h-[50vh] bg-gradient-to-r from-red-700 to-red-500 ">
-
+        className="w-full bg-transparent p-5 shadow-[0_3px_20px_rgb(255,255,255,0.2)]">
+          <Carousel>
+          {allMagazines.map((magazine)=>(
+            <div className="w-full overflow-hidden flex items-center justify-between py-5 px-[7vw]" key={magazine.magazineTitle}>
+              <h3 className="font-robotoBold text-red-700">{magazine.magazineTitle}</h3>
+              <div className="w-[20%] h-full">
+              <img className="overflow-hidden w-full object-fill rounded-md items-center justify-center" src={bucketService.getMagazineCover(magazine.magazineCover)} alt={magazine.magazineTitle}/>
+              </div>
+              
+            </div>
+           
+          ))}
+          </Carousel>
       </m.section>
 
       <section className="flex flex-col gap-3">

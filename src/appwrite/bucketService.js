@@ -21,7 +21,7 @@ export class BucketService {
         }
     }
 
-getMagazineCover(magazineCover) {
+    getMagazineCover(magazineCover) {
         try {
             return this.bucket.getFileView(config.appwriteMagazineBucketId, magazineCover);
         } catch (error) {
