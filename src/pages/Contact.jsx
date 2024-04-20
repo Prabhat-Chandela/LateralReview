@@ -1,8 +1,22 @@
 import { Input , Button, Socials } from "../Components/index";
 import { motion as m } from "framer-motion";
 import { Mail, MapPin } from "lucide-react";
+import { useForm } from "react-hook-form";
+import databaseService from "../appwrite/databaseService";
+import {toast} from "react-toastify";
 
 function Contact() {
+  const { register, handleSubmit, reset } = useForm();
+
+  const query = async (data)=>{
+    try {
+     await databaseService.createQuery(data);
+     toast.success("we recieved your query")
+      reset();
+    } catch (error) {
+      toast.error(error)
+    }
+  }
 
   return (
     <div className="w-full flex flex-col gap-20 mt-9 sm:mt-5 ">
@@ -63,17 +77,28 @@ function Contact() {
           <div className="flex flex-col gap-7 sm:w-1/2 sm:p-5 sm:pl-7">
               <h3 className="text-red-700 tracking-widest font-robotoBold  sm:text-xl">MENTION YOUR QUERY</h3>
 
-            <div className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit(query)} className="flex flex-col gap-5">
               <Input label="Email"
               placeholder="Enter email here"
               type="email"
+              {...register("userEmail", {
+                required: true,
+                validate: {
+                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                        "Email address must be a valid address",
+                }
+            })}
               />
               <Input label="Query"
                placeholder="Enter query here"
-              className="h-20" 
+              className="h-20"
+              {
+                ...register("userQuery",{
+                  required: true
+                })} 
               />
-              <Button>Send Query</Button>
-            </div>
+              <Button type="submit">Send Query</Button>
+            </form>
 
           </div>
 
