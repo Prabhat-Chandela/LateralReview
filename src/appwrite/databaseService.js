@@ -13,13 +13,9 @@ export class DatabaseService {
         this.databases = new Databases(this.client);
     }
 
-    async createSubscription({ name, email }) {
+    async createSubscription( email ) {
         try {
-            return await this.databases.createDocument(config.appwriteDatabaseId, config.appwriteSubscriptionsCollectionId, ID.unique(),
-                {
-                    name,
-                    email
-                });
+            return await this.databases.createDocument(config.appwriteDatabaseId, config.appwriteSubscriptionsCollectionId, ID.unique(),email);
 
         } catch (error) {
             console.log("Appwrite::createSubscription::error::", error)

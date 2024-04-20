@@ -6,7 +6,8 @@ import { RouterProvider, createBrowserRouter, useLocation } from "react-router-d
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { Home, Magazines, Magazine, Blogs, Blogpost, Contact, Services, PrivacyPolicy, TermsCondition } from "./pages/index.js";
-
+import { Bounce, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -95,6 +96,18 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <RouterProvider router={router} />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+/>
     </Provider>
   </React.StrictMode>,
 )
