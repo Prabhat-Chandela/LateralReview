@@ -5,22 +5,29 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import databaseService from "../appwrite/databaseService";
 import bucketService from "../appwrite/bucketService";
-import {getAllMagazines} from "../store/postSlice"
+import { getAllBlogs, getAllMagazines } from "../store/postSlice"
 
 function Home() {
   const dispatch = useDispatch();
 
-  useEffect(()=>{
+  useEffect(() => {
 
     databaseService.getMagazines().then((magazines) => {
       if (magazines) {
         dispatch(getAllMagazines({ allMagazines: magazines.documents }))
       }
+    });
+
+    databaseService.getBlogs().then((blogs) => {
+      if (blogs) {
+        dispatch(getAllBlogs({ allBlogs: blogs.documents }))
+      }
     })
 
-  },[])
+  }, [])
 
-  const allMagazines = useSelector((state) => state.post.allMagazines)
+  const allMagazines = useSelector((state) => state.post.allMagazines);
+  const allBlogs = useSelector((state) => state.post.allBlogs);
 
 
   return (
@@ -48,65 +55,46 @@ function Home() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7, duration: 0.5 }}
         className="w-full bg-transparent p-5 shadow-[0_3px_20px_rgb(255,255,255,0.2)]">
-          <Carousel>
-          {allMagazines.map((magazine)=>(
-            <div className="w-full overflow-hidden flex items-center justify-between py-5 px-[7vw]" key={magazine.magazineTitle}>
-              <h3 className="font-robotoBold text-red-700">{magazine.magazineTitle}</h3>
-              <div className="w-[20%] h-full">
-              <img className="overflow-hidden w-full object-fill rounded-md items-center justify-center" src={bucketService.getMagazineCover(magazine.magazineCover)} alt={magazine.magazineTitle}/>
+        <Carousel>
+          {allMagazines.map((magazine) => (
+            <div className="w-full overflow-hidden flex items-center justify-between py-5 px-[7vw]" key={magazine.$id}>
+          
+              <div className="w-full h-full">
+                <img className="overflow-hidden w-full object-fill rounded-md items-center justify-center" src={bucketService.getMagazinePoster(magazine.magazinePoster)} alt={magazine.magazineTitle} />
               </div>
-              
+
             </div>
-           
+
           ))}
-          </Carousel>
+        </Carousel>
       </m.section>
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-red-700 font-robotoBold text-md sm:text-xl flex items-center justify-start gap-2"><span className="text-red-700"><Newspaper /></span> Recent Blogs</h2>
+        <h2 className=" bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent font-robotoBold text-md sm:text-xl flex items-center justify-start gap-2"><span className="text-red-700"><Newspaper /></span> Recent Blogs</h2>
 
         <div className="flex gap-3 sm:gap-0 flex-wrap">
 
-          <div className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
-            <ArticleCard />
-          </div>
-
-          <div className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
-            <ArticleCard />
-          </div>
-
-          <div className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
-            <ArticleCard />
-          </div>
-
-          <div className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
-            <ArticleCard />
-          </div>
+          {allBlogs.filter((blog) => blog.guestTag == "nonGuest").map((blog) => (
+            <div key={blog.$id} className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
+              <ArticleCard {...blog} />
+            </div>
+          ))
+          }
 
         </div>
       </section>
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-red-700 font-robotoBold text-md sm:text-xl flex items-center justify-start gap-2"><span className="text-red-700"><Newspaper /></span>Guest Posts</h2>
+        <h2 className=" bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent font-robotoBold text-md sm:text-xl flex items-center justify-start gap-2"><span className="text-red-700"><Newspaper /></span>Guest Posts</h2>
 
         <div className="flex gap-3 sm:gap-0 flex-wrap">
+          {allBlogs.filter((blog) => blog.guestTag == "guest").map((blog) => (
+            <div key={blog.$id} className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
+              <ArticleCard {...blog} />
+            </div>
+          ))
 
-          <div className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
-            <ArticleCard />
-          </div>
-
-          <div className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
-            <ArticleCard />
-          </div>
-
-          <div className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
-            <ArticleCard />
-          </div>
-
-          <div className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
-            <ArticleCard />
-          </div>
-
+          }
         </div>
       </section>
 

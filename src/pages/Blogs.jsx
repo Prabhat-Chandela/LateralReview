@@ -1,6 +1,10 @@
-import { motion as m } from "framer-motion"
+import { motion as m } from "framer-motion";
+import { useSelector } from "react-redux";
+import { ArticleCard } from "../Components/index";
 
 function Blogs() {
+  const allBlogs = useSelector((state) => state.post.allBlogs);
+
   return (
     <div className="mt-9 sm:mt-7 w-full flex flex-col gap-7">
       <section className="w-full">
@@ -21,7 +25,17 @@ function Blogs() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.7, ease: "easeInOut" }}>
-        <div>
+        <div className="flex gap-3 sm:gap-0 flex-wrap">
+          {allBlogs ? (
+            allBlogs.map((blog) => (
+              <div key={blog.$id} className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
+                <ArticleCard {...blog} />
+              </div>
+            ))
+          ) :
+            (
+              <div> Loading.....</div>
+            )}
         </div>
       </m.section>
     </div>
