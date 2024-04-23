@@ -29,6 +29,14 @@ export class BucketService {
         }
     }
 
+    getMagazinePoster(magazinePoster) {
+        try {
+            return this.bucket.getFileView(config.appwriteMagazineBucketId, magazinePoster);
+        } catch (error) {
+            console.log("Appwrite::getMagazinePoster::error::", error)
+        }
+    }
+
     async getBlogFile(blogFile) {
         try {
             return await this.bucket.getFileView(config.appwriteBlogBucketId, blogFile);
@@ -37,9 +45,9 @@ export class BucketService {
         }
     }
 
-    async getBlogFeaturedimage(blogFeaturedimage) {
+     getBlogFeaturedimage(blogFeaturedimage) {
         try {
-            return await this.bucket.getFileView(config.appwriteBlogBucketId, blogFeaturedimage);
+            return this.bucket.getFileView(config.appwriteBlogBucketId, blogFeaturedimage);
         } catch (error) {
             console.log("Appwrite::getBlogFeaturedimage::error::", error)
         }

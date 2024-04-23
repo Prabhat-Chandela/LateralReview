@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         </>
       },
       {
-        path: "/blog-post/:slug",
+        path: "/blog-post/:blogfile",
         element: <>
           <Blogpost />
           <ScrollToTop />
