@@ -1,5 +1,5 @@
 import config from "../config/config";
-import { Client, Databases, ID } from "appwrite";
+import { Client, Databases, ID, Query} from "appwrite";
 
 export class DatabaseService {
     client = new Client();
@@ -37,7 +37,9 @@ export class DatabaseService {
 
     async getBlogs(){
         try {
-            return await this.databases.listDocuments(config.appwriteDatabaseId, config.appwriteBlogsCollectionId);
+            return await this.databases.listDocuments(config.appwriteDatabaseId, config.appwriteBlogsCollectionId,
+            [Query.orderDesc("$createdAt")]
+            );
         } catch (error) {
             console.log("Appwrite::getBlogs::error::", error)
         }
@@ -45,7 +47,9 @@ export class DatabaseService {
 
     async getMagazines(){
         try {
-            return await this.databases.listDocuments(config.appwriteDatabaseId, config.appwriteMagazinesCollectionId);
+            return await this.databases.listDocuments(config.appwriteDatabaseId, config.appwriteMagazinesCollectionId,
+                [Query.orderDesc("$createdAt")]
+            );
         } catch (error) {
             console.log("Appwrite::getMagazines::error::", error)
         }

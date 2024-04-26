@@ -53,7 +53,7 @@ function Magazine() {
         transition={{duration:0.7, ease:easeOut}}
         className="w-full h-[80vh] sm:h-[70vh] flex items-start justify-center relative overflow-hidden mt-5">
 
-          <HTMLFlipBook width={300} height={550} showCover={true} useMouseEvents={false} ref={book} autoSize={true} usePortrait={true} flippingTime={2000} >
+          <HTMLFlipBook width={300} height={550} showCover={true} useMouseEvents={false} ref={book}  usePortrait={true} flippingTime={2000} >
             {pagesArray.map((n) => (
               <Pages key={n + 1}>
                 <Document
