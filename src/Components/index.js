@@ -7,6 +7,8 @@ import ServiceCard from "./ServiceCard/ServiceCard";
 import Footer from "./Footer/Footer";
 import Socials from "./Socials/Socials";
 import Carousel from "./Carousel/Carousel";
+import Counter from "./Counter/Counter";
+import GuestCard from "./GuestCard/GuestCard";
 
 export {
     Header,
@@ -18,4 +20,6 @@ export {
     Footer,
     Socials,
     Carousel,
+    Counter,
+    GuestCard,
 }

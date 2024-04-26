@@ -46,3 +46,7 @@
     transform: translateY(0);
     opacity:100%;
 }
+
+.guestParentCard:hover .guestChildCard{
+    opacity: 100%;
+}

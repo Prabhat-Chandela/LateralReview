@@ -7,7 +7,7 @@ function Blogs() {
 
   return (
     <div className="mt-9 sm:mt-7 w-full flex flex-col gap-7">
-      <section className="w-full">
+      <section className="w-full flex flex-col gap-5">
         <div className="overflow-hidden">
           <m.h2
             initial={{ opacity: 0, y: "100%" }}
@@ -18,6 +18,12 @@ function Blogs() {
           </m.h2>
         </div>
 
+        <m.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}
+          className="text-white font-robotoRegular text-xs sm:text-sm sm:w-[60%] lg:w-[47%]">Step into the realm of global leadership with our blog, where we explore the profound insights and inspiration from the experiences of influential figures worldwide.</m.p>
+
       </section>
 
 
@@ -25,10 +31,10 @@ function Blogs() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.7, ease: "easeInOut" }}>
-        <div className="flex gap-3 sm:gap-0 flex-wrap">
+        <div className="grid grid-cols-4 sm:gap-3">
           {allBlogs ? (
             allBlogs.map((blog) => (
-              <div key={blog.$id} className='py-3 sm:p-2 w-[47%] sm:w-1/4'>
+              <div key={blog.$id} className='py-3 w-full col-span-4 sm:col-span-2 lg:col-span-1'>
                 <ArticleCard {...blog} />
               </div>
             ))

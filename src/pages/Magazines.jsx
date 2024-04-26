@@ -32,10 +32,10 @@ function Magazines() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.7, ease: "easeInOut" }}>
-        <div className="w-full flex flex-col items-center justify-center sm:justify-normal sm:items-start sm:flex-row flex-wrap gap-9 sm:gap-7 ">
+        <div className="w-full grid grid-cols-12 gap-5 lg:gap-7">
           {allMagazines ? (
             allMagazines.map((magazine) => (
-              <div className="w-3/4 sm:w-1/3 lg:w-1/4 xl:w-1/5 h-1/3" key={magazine.$id}>
+              <div className="w-full col-span-12 sm:col-span-6 lg:col-span-3 p-3" key={magazine.$id}>
                 <MagazineCard {...magazine} />
               </div>
             ))
