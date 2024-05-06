@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function GuestCard({blogTitle,blogFile,blogFeaturedimage}) {
     const navigate = useNavigate();
   return (
-    <div className="guestParentCard w-full flex flex-col bg-black shadow-lg shadow-white/10 rounded-md overflow-hidden border-2 border-white/5 gap-2 sm:p-2 relative cursor-pointer transition-all ease-out">
+    <div className="guestParentCard w-full flex flex-col bg-black shadow-lg shadow-white/10 rounded-md overflow-hidden border-2 border-white/5 gap-2  relative cursor-pointer transition-all ease-out">
       <div className="w-full">
         <img className="w-full rounded-md object-fill " src={bucketService.getBlogFeaturedimage(blogFeaturedimage)} alt={blogTitle} />
       </div>
