@@ -1,16 +1,16 @@
 import { ArticleCard, Carousel, Counter, GuestCard } from "../Components/index";
-import { Newspaper, ArrowBigRightDash } from "lucide-react";
+import { Newspaper } from "lucide-react";
 import { easeInOut, motion as m } from "framer-motion";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import databaseService from "../appwrite/databaseService";
 import bucketService from "../appwrite/bucketService";
 import { getAllBlogs, getAllMagazines } from "../store/postSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 function Home() {
   const dispatch = useDispatch();
-  const navigate =useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -56,28 +56,29 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7, duration: 0.5 }}
-        className="w-full xl:w-[95%] bg-transparent xl:mx-auto overflow-hidden p-1 sm:p-3 xl:p-6 shadow-[0_3px_20px_rgb(255,255,255,0.2)]">
+        className="w-full xl:w-[95%] bg-transparent xl:mx-auto overflow-hidden p-1 sm:p-3  shadow-[0_3px_20px_rgb(255,255,255,0.2)]">
         <Carousel>
           {allMagazines.map((magazine) => (
-            <div key={magazine.$id} className="min-w-full max-h-[70vh] flex items-center justify-center relative">
+            <div onClick={()=>navigate(`/magazine/${magazine.magazineFile}`)} key={magazine.$id} className="min-w-full max-h-[90vh] cursor-pointer flex items-center justify-center relative">
 
-              <button onClick={()=> navigate(`/magazine/${magazine.magazineFile}`)} className="w-fit absolute bottom-[30%] left-[10%] flex justify-center items-center gap-1 sm:left-[10%] px-2 sm:p-2 font-robotoMedium text-red-700 bg-white rounded-sm sm:rounded-lg text-xs"><span className="hidden sm:block">Read Digital Version</span><ArrowBigRightDash size={10} /></button>
+              {/* <button onClick={()=> navigate(`/magazine/${magazine.magazineFile}`)} className="w-fit absolute bottom-[30%] left-[10%] flex justify-center items-center gap-1 sm:left-[10%] px-2 sm:p-2 font-robotoMedium text-red-700 bg-white rounded-sm sm:rounded-lg text-xs"><span className="hidden sm:block">Read Digital Version</span><ArrowBigRightDash size={10} /></button> */}
 
-
-              <img className="w-full h-full object-fill overflow-hidden " src={bucketService.getMagazinePoster(magazine.magazinePoster)} alt={magazine.magazineTitle} />
+    
+                <img className="w-full h-full object-fill overflow-hidden " src={bucketService.getMagazinePoster(magazine.magazinePoster)} alt={magazine.magazineTitle} />
+              
             </div>
 
           ))}
         </Carousel>
       </m.section>
 
-      <section className="flex flex-col gap-3">
+      <section className="flex flex-col gap-5">
         <h2 className=" bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent font-robotoBold text-md sm:text-xl flex items-center justify-start gap-2"><span className="text-red-700"><Newspaper /></span> Recent Blogs</h2>
 
-        <div className="grid grid-cols-4 sm:gap-3">
+        <div className="grid grid-cols-6 sm:gap-3">
 
           {allBlogs.filter((blog) => blog.guestTag == "nonGuest").map((blog) => (
-            <div key={blog.$id} className='py-3 w-full col-span-4 sm:col-span-2 lg:col-span-1'>
+            <div key={blog.$id} className=' w-full col-span-6 sm:col-span-3 lg:col-span-2'>
               <ArticleCard {...blog} />
             </div>
           ))
@@ -86,12 +87,12 @@ function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-3">
-        <h2 className=" bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent font-robotoBold text-md sm:text-xl flex items-center justify-start gap-2"><span className="text-red-700"><Newspaper /></span>Guest Posts</h2>
+      <section className="flex flex-col gap-5">
+        <h2 className=" bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent font-robotoBold text-md sm:text-xl flex items-center justify-start gap-2"><span className="text-red-700"><Newspaper /></span>Featured Articles</h2>
 
-        <div className="grid grid-cols-3 gap-3 sm:gap-0 flex-wrap">
+        <div className="grid grid-cols-6 gap-3 sm:gap-0 flex-wrap">
           {allBlogs.filter((blog) => blog.guestTag == "guest").map((blog) => (
-            <div key={blog.$id} className='p-1 col-span-3 sm:col-span-1 w-full'>
+            <div key={blog.$id} className='col-span-6 sm:col-span-3 lg:col-span-2 w-full'>
               <GuestCard {...blog} />
             </div>
           ))
@@ -100,11 +101,11 @@ function Home() {
         </div>
       </section>
 
-    
-        <m.section className="w-full bg-gradient-to-br from-red-700 to-red-500 p-3">
-          <Counter />
-        </m.section>
-      
+
+      <m.section className="w-full bg-gradient-to-br from-red-700 to-red-500 p-3">
+        <Counter />
+      </m.section>
+
 
     </m.div>
   )

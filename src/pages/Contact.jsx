@@ -68,7 +68,7 @@ function Contact() {
               <h6 className="font-robotoMedium text-red-700 tracking-widest">REACH US THROUGH</h6>
               <div className="flex flex-col gap-3">
                 <div className=" flex gap-5">
-                <p className="flex gap-2"><span className="text-red-700"><MapPin /></span>Huston, Texas</p>
+                <p className="flex gap-2"><span className="text-red-700"><MapPin /></span>Houston, Texas</p>
                 <p className="flex gap-2"><span className="text-red-700"><MapPin /></span>New Delhi, India</p>
                 </div>
               

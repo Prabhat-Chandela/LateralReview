@@ -8,8 +8,8 @@ function Counter() {
         <div
             className='grid grid-cols-3 gap-2'>
 
-            <div className='col-span-3 sm:col-span-1 border-2 border-black bg-transparent flex flex-col items-center gap-1 justify-center py-9' >
-                <h2 className="text-black font-robotoBold text-[8vw] sm:text-[5vw]">
+            <div className='col-span-3 sm:col-span-1  bg-black flex flex-col items-center gap-1 justify-center py-9' >
+                <h2 className="text-red-600 font-robotoBold text-[8vw] sm:text-[5vw]">
                     <CountUp
                         start={0}
                         end={50}
@@ -23,8 +23,8 @@ function Counter() {
 
             </div>
 
-            <div className='col-span-3 sm:col-span-1 border-2 border-black bg-transparent flex flex-col items-center justify-center gap-1 py-9'>
-                <h2 className="text-black font-robotoBold text-[8vw] sm:text-[5vw]">
+            <div className='col-span-3 sm:col-span-1  bg-black flex flex-col items-center justify-center gap-1 py-9'>
+                <h2 className="text-red-600 font-robotoBold text-[8vw] sm:text-[5vw]">
                     <CountUp
                         start={0}
                         end={65}
@@ -37,8 +37,8 @@ function Counter() {
 
             </div>
 
-            <div className='col-span-3 sm:col-span-1 border-2 border-black bg-transparent flex flex-col items-center justify-center gap-1 py-9'>
-                <h2 className="text-black font-robotoBold text-[8vw] sm:text-[5vw]">
+            <div className='col-span-3 sm:col-span-1  bg-black flex flex-col items-center justify-center gap-1 py-9'>
+                <h2 className="text-red-600 font-robotoBold text-[8vw] sm:text-[5vw]">
                     <CountUp
                         start={0}
                         end={4}
