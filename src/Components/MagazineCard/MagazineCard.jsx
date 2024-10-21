@@ -1,16 +1,14 @@
 import bucketService from "../../appwrite/bucketService";
-import { useNavigate } from "react-router-dom";
-import { Button } from "../index"
+
 import { PenTool, Tag } from "lucide-react";
 
-function MagazineCard({ magazineTitle, magazineFile, magazineCover, magazineCategory }) {
+function MagazineCard({ magazineTitle, magazineCover, magazineCategory }) {
 
-  const navigate = useNavigate();
   const cover = bucketService.getMagazineCover(magazineCover);
 
 
   return (
-    <div className=" flex flex-col w-full h-full rounded-lg overflow-hidden items-center justify-center gap-3">
+    <div className=" flex w-full h-full rounded-lg overflow-hidden items-center justify-center ">
 
       <div className="parentCard w-full p-1 overflow-hidden relative cursor-pointer">
         <img className="overflow-hidden w-full object-fill rounded-md items-center justify-center" src={cover} alt={magazineTitle} />
@@ -19,15 +17,6 @@ function MagazineCard({ magazineTitle, magazineFile, magazineCover, magazineCate
           <h3 className="text-white font-robotoBold flex items-center justify-center gap-2 w-fit text-xs"><span><PenTool size={20} /></span> {magazineTitle}</h3>
           <p className="text-white font-robotoBold flex items-center justify-center gap-2 w-fit text-xs"><span><Tag size={20} /></span> {magazineCategory}</p>
         </div>
-
-      </div>
-
-
-      <div className="w-full px-2 ">
-
-        <Button onClick={() => navigate(`/magazine/${magazineFile}`)}>
-          Read Digital Version
-        </Button>
 
       </div>
 

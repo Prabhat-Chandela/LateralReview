@@ -33,12 +33,12 @@ function Header() {
 
 
   return (
-    <div className="w-full bg-black fixed top-0 left-0 right-0 z-30 shadow-[0px_-2px_15px_rgba(221,_221,_221,_1)]">
+    <div className="w-full h-[13vh] sm:h-[16vh] bg-black fixed top-0 left-0 right-0 z-30 shadow-[0px_-2px_15px_rgba(221,_221,_221,_1)]">
       <nav className="flex items-center justify-between p-3 sm:p-6 ">
         <section>
           <div>
             <div className=" w-[70%] sm:w-[30%] h-10">
-              <img className="w-full h-full" src="src/assets/images/Lateral-Review-Logo-withOut-Tagline.svg" alt="logo" />
+              <img className="w-full h-full" src="Lateral-Review-Logo-withOut-Tagline.svg" alt="logo" />
             </div>
           </div>
         </section>

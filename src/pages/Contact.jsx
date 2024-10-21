@@ -19,7 +19,7 @@ function Contact() {
   }
 
   return (
-    <div className="w-full flex flex-col gap-20 mt-9 sm:mt-5 ">
+    <div className="w-full flex flex-col gap-20 mt-[15vh] sm:mt-[19vh] p-5">
 
       <section className="w-full">
 

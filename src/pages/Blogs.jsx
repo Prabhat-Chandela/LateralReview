@@ -6,7 +6,7 @@ function Blogs() {
   const allBlogs = useSelector((state) => state.post.allBlogs);
 
   return (
-    <div className="mt-9 sm:mt-7 w-full flex flex-col gap-7">
+    <div className="mt-[15vh] sm:mt-[19vh] p-5 w-full flex flex-col gap-7">
       <section className="w-full flex flex-col gap-5">
         <div className="overflow-hidden">
           <m.h2

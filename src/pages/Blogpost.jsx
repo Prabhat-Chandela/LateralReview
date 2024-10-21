@@ -49,7 +49,7 @@ function Blogpost() {
         initial={{opacity:0}}
         animate={{opacity:1}}
         transition={{duration:0.7, ease:easeOut}}
-        className="w-full flex flex-col gap-2 items-center justify-center overflow-hidden mt-5 sm:hidden">
+        className="w-full flex flex-col gap-2 items-center justify-center overflow-hidden mt-[15vh] sm:hidden">
            
             {pagesArray.map((n) => (
               <Pages key={n + 1}>
@@ -69,7 +69,7 @@ function Blogpost() {
         initial={{opacity:0}}
         animate={{opacity:1}}
         transition={{duration:0.7, ease:easeOut}}
-        className=" hidden lg:hidden w-full sm:flex flex-col gap-2 items-center justify-center overflow-hidden mt-5">
+        className=" hidden lg:hidden w-full sm:flex flex-col gap-2 items-center justify-center overflow-hidden sm:mt-[19vh]">
            
             {pagesArray.map((n) => (
               <Pages key={n + 1}>

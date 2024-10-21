@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
-import { MagazineCard } from "../Components/index";
+import { MagazineCard , Button} from "../Components/index";
 import { motion as m } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 function Magazines() {
   const allMagazines = useSelector((state) => state.post.allMagazines);
+  const navigate = useNavigate();
 
   return (
-    <div className="w-full mt-9 sm:mt-7 flex flex-col gap-14">
+    <div className="w-full mt-[15vh] sm:mt-[19vh] p-5 flex flex-col gap-14">
 
       <section className="w-full flex flex-col gap-5">
         <div className="overflow-hidden">
@@ -37,6 +39,13 @@ function Magazines() {
             allMagazines.map((magazine) => (
               <div className="w-full col-span-12 sm:col-span-6 lg:col-span-3 p-3" key={magazine.$id}>
                 <MagazineCard {...magazine} />
+                <div className="w-full px-2 ">
+
+                  <Button onClick={() => navigate(`/magazine/${magazine.magazineFile}`)}>
+                    Read Digital Version
+                  </Button>
+
+                </div>
               </div>
             ))
           ) : (

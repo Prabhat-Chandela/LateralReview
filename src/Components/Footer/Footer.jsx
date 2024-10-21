@@ -24,9 +24,9 @@ function Footer() {
 
             <div className="col-span-2 lg:col-span-1 flex flex-col gap-5 sm:px-5 py-3 lg:border-r border-r-red-600">
                 <div className=" w-full  rounded-md sm:w-[60%] h-10">
-                    <img className="w-full h-full" src="src/assets/images/Lateral-Review-Logo-withOut-Tagline.svg" alt="logo" />
+                    <img className="w-full h-full" src="Lateral-Review-Logo-withOut-Tagline.svg" alt="logo" />
                 </div>
-                <p className="hidden sm:block font-robotoMedium text-base bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent">Excellence is never an accident. It is always the result of high intention, sincere effort, and intelligent execution; it represents the wise choice of many alternatives - choice, not chance, determines your destiny</p>
+                <p className="hidden sm:block font-robotoMedium text-base text-white/85">Excellence is never an accident. It is always the result of high intention, sincere effort, and intelligent execution; it represents the wise choice of many alternatives - choice, not chance, determines your destiny</p>
 
                 <div className="flex gap-7 ">
                     <Link to={"/terms-condition"}>

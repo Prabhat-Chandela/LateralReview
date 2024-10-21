@@ -5,9 +5,9 @@ function App() {
 
   return (
     <>
-      <div className="bg-black text-white max-w-screen min-h-screen flex flex-col overflow-hidden">
+      <div className=" bg-gradient-to-br from-black to-neutral-950 text-white max-w-screen min-h-screen flex flex-col overflow-hidden">
         <Header/>
-        <main className="w-full p-5 mt-10 sm:mt-24 flex-1">
+        <main className="w-full  flex-1">
           <Outlet/>
         </main>
         <Footer/>
